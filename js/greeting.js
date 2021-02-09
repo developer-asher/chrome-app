@@ -39,6 +39,12 @@ function saveName(text) {
     localStorage.setItem(ls_userName, text);
 }
 
+function paintGreeting(text) {
+    qustionBox.classList.remove('showing');
+    greetings.classList.add('showing');
+    greetings.innerText = `Hello ${text}`;
+}
+
 function handleSubmit(e) {
     e.preventDefault();
 
@@ -57,12 +63,6 @@ function handleSubmit(e) {
 function askForName() {
     qustionBox.classList.add('showing');
     qustionBox.addEventListener('submit', handleSubmit);
-}
-
-function paintGreeting(text) {
-    qustionBox.classList.remove('showing');
-    greetings.classList.add('showing');
-    greetings.innerText = `Hello ${text}`;
 }
 
 function loadName() {
