@@ -8,10 +8,12 @@ function getWeahter(lat, lon) {
         return response.json();
     })
     .then(function(json) {
+        console.log(json);
         const temp = json.main.temp;
         const place = json.name;
+        const weatherIcon = json.weather[0].icon;
         
-        weather.innerText = `${temp}℃ / ${place}`;
+        weather.innerHTML = `<div><img class='weather_icon' src='http://openweathermap.org/img/wn/${weatherIcon}@2x.png'><span>${temp}℃</span></div> ${place}`;
     });
 }
 
