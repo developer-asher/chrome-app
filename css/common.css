@@ -4,26 +4,27 @@
   --background-color: #0d0d11;
 }
 body {
+  margin: 0;
   color: var(--text-color);
   background-color: var(--background-color);
+  font-size: 14px;
 }
-
+h1 {
+  margin: 0;
+}
 .blind {
   position: absolute;
   left: -9999em;
 }
-
 .q_box,
 .greetings,
 .q_box2,
 .q_box3 {
   display: none;
 }
-
 .showing {
   display: block;
 }
-
 .bg {
   position: absolute;
   left: 0;
@@ -31,4 +32,81 @@ body {
   width: 100%;
   height: 100%;
   z-index: -1;
+}
+
+.title_clock {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  width: 35%;
+  padding: 15px 30px;
+  transform: translate(-50%, -50%);
+}
+.title_clock > h1 {
+  font-size: 6rem;
+  text-align: center;
+}
+
+.questions {
+  margin-top: 60px;
+}
+.questions > input {
+  width: 100%;
+  border: none;
+  border-bottom: 1px solid #fff;
+  padding: 5px 0 5px 3px;
+  background-color: transparent;
+  outline: none;
+  font-size: 3rem;
+  color: var(--text-color);
+  box-sizing: border-box;
+}
+.questions > input::placeholder {
+  color: var(--text-color);
+}
+
+.greetings {
+  margin: 0;
+  margin-top: 20px;
+  font-size: 4rem;
+  text-align: center;
+}
+
+.list_todo {
+  margin: 30px 0 0 0;
+  padding: 0;
+  list-style: none;
+  font-size: 1.8rem;
+}
+.list_todo button {
+  margin-right: 15px;
+  border: 1px solid #fff;
+  padding: 6px 10px;
+  background-color: transparent;
+  color: #fff;
+  cursor: pointer;
+  vertical-align: middle;
+  font-size: 0.5em;
+}
+.list_todo span {
+  margin-top: 10px;
+}
+
+.weather {
+  position: fixed;
+  right: 0;
+  top: 0;
+  padding: 5px 10px;
+  font-size: 1.2rem;
+  text-align: center;
+  background: rgba(255, 255, 255, 0.2);
+}
+.weather_icon {
+  width: auto;
+  height: 40px;
+  vertical-align: middle;
+}
+.weather span {
+  vertical-align: middle;
+  font-size: 1.5rem;
 }
