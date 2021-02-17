@@ -16,6 +16,9 @@ h1 {
   position: absolute;
   left: -9999em;
 }
+.text_blind {
+  text-indent: -9999em;
+}
 .q_box,
 .greetings,
 .q_box2,
@@ -42,9 +45,74 @@ h1 {
   padding: 15px 30px;
   transform: translate(-50%, -50%);
 }
-.title_clock > h1 {
+.box_hour {
+  position: relative;
+}
+.box_hour > h1 {
   font-size: 6rem;
   text-align: center;
+}
+.btn_setHour {
+  position: absolute;
+  right: -20px;
+  top: 55%;
+  font-size: 20px;
+  color: #fff;
+  transform: translateY(-50%);
+  transition: 0.3s;
+  opacity: 0;
+  /* opacity: 1; */
+}
+.btn_setHour.on {
+  opacity: 1;
+  cursor: pointer;
+}
+.option {
+  display: none;
+  position: absolute;
+  right: -20px;
+  top: 55%;
+  justify-content: space-between;
+  align-items: center;
+  border-radius: 5px;
+  padding: 5px 10px;
+  box-sizing: border-box;
+  background-color: #fff;
+  color: #000;
+  transform: translate(80%, calc(-50% + 35px));
+}
+.option.on {
+  display: flex;
+}
+.option::before {
+  content: "";
+  display: block;
+  position: absolute;
+  top: -6px;
+  left: 15px;
+  border-left: 7px solid transparent;
+  border-right: 7px solid transparent;
+  border-bottom: 7px solid #fff;
+}
+.option_label {
+  margin-right: 20px;
+}
+.toggle_slider {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  width: 28px;
+  height: 14px;
+  border-radius: 14px;
+  background: #69f;
+  cursor: pointer;
+}
+.toggle_slider.on {
+  justify-content: flex-start;
+}
+.toggle_slider i {
+  height: 14px;
+  font-size: 14px;
 }
 
 .questions {

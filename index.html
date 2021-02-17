@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.2/css/all.css" integrity="sha384-vSIIfh2YWi9wW0r9iZe7RJPrKwp6bG+s9QZMoITbCckVJqGCCRhc+ccxNcdpHuYu" crossorigin="anonymous">
     <link rel="stylesheet" href="css/common.css">
     <script src="js/clock.js" defer></script>
     <script src="js/greeting.js" defer></script>
@@ -14,7 +15,17 @@
 <body>
 
 <div class='title_clock'>
-    <h1>00:00</h1>
+    <div class='box_hour'>
+        <h1>00:00</h1>
+        <i class="btn_setHour fas fa-ellipsis-h"></i>
+        <div class='option'>
+            <span class='option_label'>12-hour clock</span>
+            <span class='toggle_slider'>
+                <i class="fas fa-circle"></i>
+            </span>
+        </div>
+    </div>
+
     <form class='q_box questions'>
         <label for='q_name' class='blind'>Name</label>
         <input type='text' id='q_name' placeholder='What is your name?' />
