@@ -7,50 +7,53 @@ const boxOption = document.querySelector('.option_label');
 const option = document.querySelector('.option');
 const toggleSlider = document.querySelector('.toggle_slider');
 
-function changeHourType() {
+let setTimeId;
+
+function playAutoTime(type) {
+    setTimeId = setInterval(() => toggleTimeFormat(type), 1000);
+}
+
+function toggleTimeFormat(type, callback) {
     let date = new Date(),
         hours = date.getHours(),
         minutes = date.getMinutes(),
         seconds = date.getSeconds();
     
-    hours = hours % 12;
-    hours = hours ? hours : 12;
+    if(type === '12hours') {
+        hours = hours % 12;
+        hours = hours ? hours : 12;
 
-    clockTitle.innerText = `${hours}:${minutes<10 ? `0${minutes}` : minutes}:${seconds<10 ? `0${seconds}` : seconds}`;
-}
-
-function setIntervalChangHour() {
-    formatTime12Id = setInterval(() => changeHourType(), 1000);
-}
-
-function changeHourFormat() {
-    if(toggleSlider.classList.contains('on')) {
-        changeHourType();
-        clearInterval(formatTime24Id);
-        setIntervalChangHour();
+        clockTitle.innerText = `${hours}:${minutes<10 ? `0${minutes}` : minutes}:${seconds<10 ? `0${seconds}` : seconds}`;
     } else {
-        clearInterval(formatTime12Id);
-        moveAutoTime();
+        clockTitle.innerText = `${hours<10 ? `0${hours}` : hours}:${minutes<10 ? `0${minutes}` : minutes}:${seconds<10 ? `0${seconds}` : seconds}`;
     }
 }
 
-function slideToggleBtn() {
-    toggleSlider.classList.toggle('on');
-    
-    changeHourFormat();
+function stopAutoTime() {
+    clearInterval(setTimeId);
 }
 
-function toggleSlide() {
-    toggleSlider.addEventListener('click', slideToggleBtn);
+function checkTimeFormat() {
+    if(toggleSlider.classList.contains('on')) {
+        stopAutoTime(setTimeId);
+        toggleTimeFormat('12hours');
+        playAutoTime('12hours');
+    } else {
+        stopAutoTime(setTimeId);
+        toggleTimeFormat('24hours');
+        playAutoTime('24hours');
+    }
 }
 
-function showOption() {
-    option.classList.toggle('on');
-    btnSetHour.classList.add('on');
+function showSlide() {
+    toggleSlider.addEventListener('click', () => toggleSlider.classList.toggle('on'));
 }
 
 function showHourSettingbox() {
-    btnSetHour.addEventListener('click', showOption);
+    btnSetHour.addEventListener('click', () => {
+        option.classList.toggle('on');
+        btnSetHour.classList.add('on');
+    });
 }
 
 function showSetting() {
@@ -69,25 +72,14 @@ function showHourSettingButton() {
     boxHour.addEventListener('mouseout', showSetting);
 }
 
-function getTime (){
-    let date = new Date(),
-        hours = date.getHours(),
-        minutes = date.getMinutes(),
-        seconds = date.getSeconds();
-
-    clockTitle.innerText = `${hours<10 ? `0${hours}` : hours}:${minutes<10 ? `0${minutes}` : minutes}:${seconds<10 ? `0${seconds}` : seconds}`;
-}
-
-function moveAutoTime() {
-    formatTime24Id =  setInterval(() => getTime(), 1000);
-}
-
 function init(){
-    getTime();
-    moveAutoTime();
+    toggleTimeFormat('24hours');
+    playAutoTime('24hours');
     showHourSettingButton();
     showHourSettingbox();
-    toggleSlide();
+    showSlide();
+    checkTimeFormat();
+    toggleSlider.addEventListener('click', checkTimeFormat);
 }
 
 init();

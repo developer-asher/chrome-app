@@ -101,18 +101,25 @@ h1 {
   display: flex;
   align-items: center;
   justify-content: flex-end;
-  width: 28px;
-  height: 14px;
-  border-radius: 14px;
-  background: #69f;
+  width: 34px;
+  height: 20px;
+  border-radius: 17px;
+  background: #ccc;
   cursor: pointer;
 }
 .toggle_slider.on {
   justify-content: flex-start;
+  background: rgb(77, 212, 72);
 }
 .toggle_slider i {
   height: 14px;
   font-size: 14px;
+  color: #fff;
+  margin-right: 3px;
+}
+.toggle_slider.on i {
+  margin-left: 3px;
+  margin-right: 0px;
 }
 
 .questions {
