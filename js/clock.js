@@ -56,20 +56,68 @@ function showHourSettingbox() {
     });
 }
 
-function showSetting() {
-    if(!btnSetHour.classList.contains('on')) {
-        btnSetHour.classList.add('on');
-    } else {
+function showHourSettingButton() {
+    boxHour.addEventListener('mouseover', () => btnSetHour.classList.add('on'));
+    boxHour.addEventListener('mouseout', () => {
         if(option.classList.contains('on')) {
             return false;
         }
         btnSetHour.classList.remove('on');
-    }
+    });
 }
 
-function showHourSettingButton() {
-    boxHour.addEventListener('mouseover', showSetting);
-    boxHour.addEventListener('mouseout', showSetting);
+const btnSetName = document.querySelector('.greetings_option i'),
+    eidtWrapper = document.querySelector('.edit_wrapper');
+
+function changeName() {
+    const greetingName = document.querySelector('.greeting_name');
+    const currentUser = localStorage.getItem('currentUser');
+
+    greetingName.innerHTML = '';
+    greetingName.innerHTML = `<form><input class='name' type='text' value='${currentUser}' autofocus /></form>`;
+
+    const form = document.querySelector('.greeting_name>form'),
+        input_name = document.querySelector('.name'),
+        pos = input_name.value.length;
+
+    input_name.setSelectionRange(pos, pos);
+
+    form.addEventListener('submit', (e) => {
+        e.preventDefault();
+
+        let changedName = input_name.value;
+        greetingName.innerText = changedName;
+
+        saveName(changedName);
+
+        btnSetName.classList.remove('on');
+        eidtWrapper.classList.remove('on');
+    });
+}
+
+function editName(ele, target) {
+    ele.addEventListener('click', () => {
+        target.classList.toggle('on');
+        ele.classList.add('on');
+    });
+
+    const btnEditName = document.querySelector('.edit_wrapper>span');
+
+    btnEditName.addEventListener('click', changeName);
+}
+
+function changeGreetingName() {
+    const greetingsOption = document.querySelector('.greetings_option');
+
+    greetingsOption.addEventListener('mouseover', () => btnSetName.classList.add('on'));
+    greetingsOption.addEventListener('mouseout', () => {
+        if(eidtWrapper.classList.contains('on')) {
+            return false;
+        }
+        btnSetName.classList.remove('on');
+    });
+
+    editName(btnSetName, eidtWrapper);
 }
 
 function init(){
@@ -80,6 +128,7 @@ function init(){
     showSlide();
     checkTimeFormat();
     toggleSlider.addEventListener('click', checkTimeFormat);
+    changeGreetingName();
 }
 
 init();

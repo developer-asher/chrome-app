@@ -42,7 +42,7 @@ function saveName(text) {
 function paintGreeting(text) {
     qustionBox.classList.remove('showing');
     greetings.classList.add('showing');
-    greetings.innerText = `Hello ${text}`;
+    greetings.innerHTML = `Hello, <span class='greeting_name'>${text}</span>`;
 }
 
 function handleSubmit(e) {

@@ -15,35 +15,43 @@
 <body>
 
 <div class='title_clock'>
-    <div class='box_hour'>
-        <h1>00:00</h1>
-        <i class="btn_setHour fas fa-ellipsis-h"></i>
-        <div class='option'>
-            <span class='option_label'>12-hour clock</span>
-            <span class='toggle_slider'>
-                <i class="fas fa-circle"></i>
-            </span>
+    <div>
+        <div class='box_hour'>
+            <h1>00:00</h1>
+            <i class="btn_setHour btn_set fas fa-ellipsis-h"></i>
+            <div class='option'>
+                <span class='option_label'>12-hour clock</span>
+                <span class='toggle_slider'>
+                    <i class="fas fa-circle"></i>
+                </span>
+            </div>
         </div>
+    
+        <form class='q_box questions'>
+            <label for='q_name' class='blind'>Name</label>
+            <input type='text' id='q_name' placeholder='What is your name?' />
+        </form>
+        <div class='greetings_option'>
+            <h2 class='greetings'>hello blabla~</h2>
+            <i class="btn_setName btn_set fas fa-ellipsis-h"></i>
+            <div class='option edit_wrapper'>
+                <span>Edit your name</span>
+            </div>
+        </div>
+    
+        <form class="q_box2 questions">
+            <label for="q_mail" class='blind'></label>
+            <input type="text" id="q_email" placeholder="Whart is your email address?">
+        </form>
+    
+        <form class="q_box3 questions">
+            <label for="q_todo" class='blind'></label>
+            <input type="text" id="q_todo" placeholder="write a to do">
+        </form>
+        <ul class="list_todo">
+    
+        </ul>
     </div>
-
-    <form class='q_box questions'>
-        <label for='q_name' class='blind'>Name</label>
-        <input type='text' id='q_name' placeholder='What is your name?' />
-    </form>
-    <h2 class='greetings'>hello blabla~</h2>
-
-    <form class="q_box2 questions">
-        <label for="q_mail" class='blind'></label>
-        <input type="text" id="q_email" placeholder="Whart is your email address?">
-    </form>
-
-    <form class="q_box3 questions">
-        <label for="q_todo" class='blind'></label>
-        <input type="text" id="q_todo" placeholder="write a to do">
-    </form>
-    <ul class="list_todo">
-
-    </ul>
 </div>
 
 <span class="weather"></span>

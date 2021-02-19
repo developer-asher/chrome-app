@@ -38,12 +38,10 @@ h1 {
 }
 
 .title_clock {
-  position: absolute;
-  left: 50%;
-  top: 50%;
-  width: 35%;
-  padding: 15px 30px;
-  transform: translate(-50%, -50%);
+  display: flex;
+  height: 100vh;
+  justify-content: center;
+  align-items: center;
 }
 .box_hour {
   position: relative;
@@ -52,25 +50,24 @@ h1 {
   font-size: 6rem;
   text-align: center;
 }
-.btn_setHour {
+.btn_set {
   position: absolute;
-  right: -20px;
+  right: 30px;
   top: 55%;
   font-size: 20px;
   color: #fff;
   transform: translateY(-50%);
   transition: 0.3s;
   opacity: 0;
-  /* opacity: 1; */
 }
-.btn_setHour.on {
+.btn_set.on {
   opacity: 1;
   cursor: pointer;
 }
 .option {
   display: none;
   position: absolute;
-  right: -20px;
+  right: 30px;
   top: 55%;
   justify-content: space-between;
   align-items: center;
@@ -140,11 +137,43 @@ h1 {
   color: var(--text-color);
 }
 
+.greetings_option {
+  position: relative;
+}
 .greetings {
+  width: auto;
   margin: 0;
   margin-top: 20px;
   font-size: 4rem;
   text-align: center;
+}
+.greeting_name form {
+  width: auto;
+  display: inline;
+}
+.greeting_name input {
+  display: inline;
+  width: auto;
+  border: none;
+  border-bottom: 4px solid #fff;
+  padding: 0;
+  font-size: 4rem;
+  text-align: center;
+  background-color: transparent;
+  color: #fff;
+  outline: none;
+}
+
+.btn_setName {
+  top: 60%;
+  right: -50px;
+}
+.edit_wrapper {
+  right: -40px;
+  cursor: pointer;
+}
+.edit_wrapper::before {
+  left: 17px;
 }
 
 .list_todo {
